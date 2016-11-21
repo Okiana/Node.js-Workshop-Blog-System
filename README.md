@@ -14,8 +14,8 @@
 ##### When the form is submitted, the server should set some unique ID to the article and save it on some “database”. Database can be a simple in memory array of objects or a JSON file. All fields should be validated and should not be empty. You can process the invalid input in whatever way you see fit (a simple error message is more than enough).
 
 # Problem 4.	Route GET /all #
-```
-##### When this route is reached the server should return dynamically generated HTML containing list of all articles with their title and date of creation. Deleted articles should not be shown in the list. Articles should be listed sorted by their date of creation in ascending order. Each article should have a link to “/details/{id}” where “id” is the ID of the article. Links are written with <a href=”url”>My link</a>.
+```html
+When this route is reached the server should return dynamically generated HTML containing list of all articles with their title and date of creation. Deleted articles should not be shown in the list. Articles should be listed sorted by their date of creation in ascending order. Each article should have a link to “/details/{id}” where “id” is the ID of the article. Links are written with <a href=”url”>My link</a>.
 ```
 # Problem 5.	Route GET /details/{id}#
 
@@ -34,13 +34,13 @@
 ##### The form for comments should save the data on the above route. The comment should be saved for the article with the provided ID. Validate the comment. It should not be empty. Save the date of the comment too. Add on the “/details/{id}” page all comments made for the corresponding article. 
 
 # Problem 9.	Add image upload for each article #
-
-##### Add an input type “file” to the “/create” form allowing for the user to save an image for each article. Save the file on a server folder named “images”. Change the file name so that there will not be any collisions if the user sends two files with the same name. Show the file on the article details page. Use <img src=”imageSrc” /> HTML tag. 
-
+```html
+ Add an input type “file” to the “/create” form allowing for the user to save an image for each article. Save the file on a server folder named “images”. Change the file name so that there will not be any collisions if the user sends two files with the same name. Show the file on the article details page. Use <img src=”imageSrc” /> HTML tag. 
+```
 # Problem 10.	Add statistics page #
-```
+
 ##### Add GET /stats route which is available only if “My-Authorization” header with “Admin” value is provided in the request (otherwise return 404). Show all article listed (including the deleted ones), the total number of comments and total number of views.
-```
+
 ##OTHER REQUIREMENTS##
 * Use Node.js as web server
 * Add initial sample data for easier testing of the application
