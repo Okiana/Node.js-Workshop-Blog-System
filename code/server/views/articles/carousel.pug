@@ -1,0 +1,27 @@
+articles.article
+append styles
+	// Custom styles for this template 
+	link(rel="stylesheet", type="text/css", href="/css/carousel.css")
+block body
+	.container.marketing
+		// Three columns of text below the carousel
+		.row
+			if(articles)
+				each arti in articles
+					.col-lg-12
+						if(arti.image)
+							img.img-circle(src='../images/' + arti.image, alt='No picture in this article', width='140', height='140')
+						h2.marketing=arti.title
+						p
+							|#{arti.description}
+						p
+							a.btn.btn-default(href='/details/' + arti.id, role='button') View details »
+							
+			else
+				.col-sm-12.blog-main
+					h2 No articles
+		footer
+			p
+				a(href='#') Back to top
+
+

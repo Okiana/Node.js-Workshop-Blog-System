@@ -1,0 +1,21 @@
+articles.arti
+append styles
+	//	!-- Custom styles for this template --
+	link(href="../css/cover.css", rel="stylesheet")
+
+block body
+	.site-wrapper
+		.site-wrapper-inner
+			.cover-container
+				each arti in articles
+					.inner.cover
+						if(arti.image)
+							img.img-responsive-center.img-rounded(src='../images/' + arti.image, alt='No picture in this article')
+						h1.cover-heading #{arti.title}
+						p.lead #{arti.description}
+						p Date: #{arti.date}
+						p Viewed: #{arti.shown}
+						if(arti.state == "Deleted")
+							a.btn.btn-info(href='/change/' + arti.id, role='submit') Undo delete
+						else
+							a.btn.btn-danger(href='/change/' + arti.id, role='submit') Delete

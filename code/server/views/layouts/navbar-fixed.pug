@@ -1,0 +1,12 @@
+append styles
+	// Custom styles for this template
+	link(rel='stylesheet', type="text/css", href='css/navbar-fixed-top.css')
+
+block body
+	// Fixed navbar
+	+navbar-fixed("Blog System App","navbar")
+		+nav_item("/") Home
+		+nav_item_dropdown("#")(label="Menu")
+			+nav_item("/create") Create article
+			+nav_item("/all") See all articles
+		

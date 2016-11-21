@@ -1,0 +1,29 @@
+articles.article
+append styles
+	// Custom styles for this template
+	link(rel="stylesheet", type="text/css", href='css/blog.css')
+block body
+	.container
+		.blog-header
+			h1.blog-title Welcome to Blog System
+			p.lead.blog-description This is my Node.JS exam project.
+		.row
+			.col-sm-12.blog-main
+				if(articles)
+					each article in articles
+						if(article && article.state != "Deleted")
+							.blog-post
+								h2.blog-post-title=article.title
+								p.blog-post-meta=article.date
+								hr
+								if(article.image)
+									img.img-responsive.img-circle.img-thumbnail(src='../images/' + article.image, alt='No picture in this article', width='250', height='250')
+								p=article.description	
+				else
+					.col-sm-12.blog-main
+						.blog-post
+							h2.blog-post-title No articles			
+
+	footer.blog-footer
+		p
+			a(href='#') Back to top

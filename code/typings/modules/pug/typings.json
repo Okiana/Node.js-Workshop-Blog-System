@@ -1,0 +1,11 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/types/npm-pug/e49416584259571d32df1a400efcb065b8d80419/typings.json",
+    "raw": "registry:npm/pug#2.0.0+20160913022035",
+    "main": "index.d.ts",
+    "version": "2.0.0",
+    "name": "pug",
+    "type": "typings"
+  }
+}
