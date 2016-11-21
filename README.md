@@ -1,5 +1,6 @@
 # Node.js-Workshop-Blog-System
-##### Node.js Exam 
+##### Node.js Exam - I used express.js to create the project.
+##### Exam conditions : 
 
 # Problem 1.Route GET / #
 
