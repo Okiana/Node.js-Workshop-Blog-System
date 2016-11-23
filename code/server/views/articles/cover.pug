@@ -19,3 +19,10 @@ block body
 							a.btn.btn-info(href='/change/' + arti.id, role='submit') Undo delete
 						else
 							a.btn.btn-danger(href='/change/' + arti.id, role='submit') Delete
+					if(arti.comments)
+						.cover-container-comments
+							h2.cover-heading Comments:
+							each comment in arti.comments
+									h3 Author : #{comment.author}
+									h3=comment.content
+									p=comment.date

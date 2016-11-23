@@ -1,7 +1,7 @@
 articles.article
 append styles
 	// Custom styles for this template 
-	link(rel="stylesheet", type="text/css", href="/css/carousel.css")
+	link(rel='stylesheet', type='text/css', href='/css/carousel.css')
 block body
 	.container.marketing
 		// Three columns of text below the carousel
@@ -16,6 +16,14 @@ block body
 							|#{arti.description}
 						p
 							a.btn.btn-default(href='/details/' + arti.id, role='button') View details »
+						form.form-signin(method='post' action='/details/' + arti.id + '/comment')
+							h2.form-signin-heading Add Comment:
+							label.sr-only(for='username') Enter Username
+							input#inputText.form-control(type='text', name='username', placeholder=' write your name', required='', autofocus='')
+							label.sr-only(for='content') Enter Comment
+							textarea.form-control(type='text', name='content', rows='5', placeholder='write comment here', required='', autofocus='')
+							button.btn.btn-lg.btn-primary.btn-block(type='submit') Add 
+							a-btn.btn-lg.btn-warning.btn-block(href='/', title="cancel") Cancel
 							
 			else
 				.col-sm-12.blog-main
@@ -23,5 +31,3 @@ block body
 		footer
 			p
 				a(href='#') Back to top
-
-

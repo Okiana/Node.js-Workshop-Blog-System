@@ -8,4 +8,5 @@ module.exports = (app) => {
   app.get('/all', controller.article.allArticles)
   app.get('/details/:id', controller.article.articleId)
   app.get('/change/:id', controller.article.changeButton)
+  app.post('/details/:id/comment', controller.article.addComment)
 }

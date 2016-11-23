@@ -3,7 +3,7 @@ let memoryArr = require('../config/db')
 
 let GetDateTime = () => {
   let date = new Date()
-  return moment(date).format('YYYY/MM/DD HH:mm:ss')
+  return moment(date).format('DD/MM/YYYY HH:mm:ss')
 }
 
 module.exports = {
@@ -44,12 +44,33 @@ module.exports = {
       if (parseInt(elem.id) === parseInt(id)) {
         if (elem.state === 'Deleted') elem.state = 'Ok'
         else elem.state = 'Deleted'
-        console.log(elem)
       }
-      console.log('Must check that ------------------------------------------')
-      memoryArr.forEach((elem) => console.log(elem))
-      res.redirect('back')
     })
+    res.redirect('back')
+  },
+  addComment: (req, res) => {
+    let id = req.params.id
+    memoryArr.forEach((elem) => {
+      if (parseInt(elem.id) === parseInt(id)) {
+        let username = req.body.username
+        let idComment
+        if (elem.comments) {
+          idComment = elem.comments.length
+        } else {
+          idComment = 0
+          elem['comments'] = []
+        }
+        let content = req.body.content
+        console.log(req.body)
+        let date = GetDateTime()
+        elem.comments.push({'id': idComment, 'content': content, 'author': username, 'date': date})
+      }
+    })
+    memoryArr.forEach((elem) => {
+      console.log(elem)
+    })
+
+    res.redirect('/details/' + id)
   }
 }
 
